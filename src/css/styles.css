@@ -1,0 +1,55 @@
+@import './fonts.css';
+
+* {
+    font-family: 'Poppins';
+}
+
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+@layer utilities {
+    .text-rainbow {
+        --bg-size: 400%;
+
+        background: linear-gradient(
+                90deg,
+                theme('colors.blue.500'),
+                theme('colors.green.500'),
+                theme('colors.green.500'),
+                theme('colors.yellow.500'),
+                theme('colors.yellow.500'),
+                theme('colors.red.500'),
+                theme('colors.red.500'),
+                theme('colors.pink.500'),
+                theme('colors.pink.500'),
+                theme('colors.purple.500'),
+                theme('colors.purple.500'),
+                theme('colors.blue.500')
+            )
+            0 0 / var(--bg-size) 100%;
+        color: transparent;
+        background-clip: text;
+        animation: move-bg 50s infinite linear;
+    }
+
+    .font-spectral {
+        font-family: 'Spectral';
+    }
+}
+
+:root,
+body,
+#root {
+    min-height: 100vh;
+}
+
+#root > :first-child {
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+@keyframes move-bg {
+    to {
+        background-position: var(--bg-size) 0;
+    }
+}
